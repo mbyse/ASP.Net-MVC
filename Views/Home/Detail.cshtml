@@ -1,0 +1,20 @@
+﻿@model FirstChallenge.Models.ComicBook
+
+
+    <h1>Details About @Model.ComicTitle #@Model.EpisodeNumber</h1>
+    <h3>Episode Title: @Model.EpisodeTitle</h3>
+@{
+    var characters = Model.Characters.Select(p => p.Name).ToArray();
+    var charactersString = String.Join(", ", characters);
+    <p><strong>Starring:</strong> @charactersString</p>
+}
+    <h3>Cover Image:</h3>
+    <img src="@Model.ComicImage" alt="Cover for @Model.EpisodeTitle"/>
+
+
+<dl class="dl-horizontal">
+</dl>
+
+<p>
+   @Html.ActionLink("Back to All Comics", "Index")
+</p>
